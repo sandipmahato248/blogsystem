@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/users/**
+        - id: UPVOTE-SERVICE
+          uri: lb://UPVOTE-SERVICE
+          predicates:
+            - Path=/upvote/**
+        - id: COMMENT-SERVICE
+          uri: lb://COMMENT-SERVICE
+          predicates:
+            - Path=/comments/**
+        - id: ARTICLE-SERVICE
+          uri: lb://ARTICLE-SERVICE
+          predicates:
+            - Path=/articles/**
+        - id: SECURITY-SERVICE
+          uri: lb://SECURITY-SERVICE
+          predicates:
+            - Path=/oauth/** 
+        - id: LOGIN-SERVICE
+          uri: lb://LOGIN-SERVICE
+          predicates:
+            - Path=/login/**        
